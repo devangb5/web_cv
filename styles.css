@@ -205,3 +205,49 @@ nav ul li a:hover {
 .read-more:hover {
     background-color: #1A3636;
 }
+.personal-interests {
+    text-align: center;
+    padding: 50px 0;
+}
+
+.interests-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Smaller minimum size */
+    gap: 15px; /* Adjusted gap for smaller screens */
+    padding: 2rem;
+}
+
+.interest-item {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.interest-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.interest-item:hover img {
+    transform: scale(1.05);
+}
+
+.interest-item p {
+    margin-top: 10px;
+    font-size: 1rem;
+    color: white;
+}
+
+/* Responsive Design for smaller screens */
+@media (max-width: 480px) {
+    .interests-grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Even smaller grid items */
+    }
+
+    .interest-item p {
+        font-size: 0.9rem; /* Smaller font size for smaller screens */
+    }
+}
+
