@@ -1,0 +1,207 @@
+:root {
+    --font-family: 'Georgia', serif;
+    --background-color: #1A3636; /* Solid dark background */
+    --text-color: white;
+    --header-background: #1a3636a5;
+    --hover-color: #4a0107bd; 
+    --divider-color: gray;
+    --card-background: #4a0107bd;
+    --font-size-h1: 3em;
+    --font-size-h2: 2em;
+    --padding: 2rem;
+    --gap: 20px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-family);
+}
+
+h1 {
+    font-size: var(--font-size-h1);
+}
+
+h2 {
+    font-size: var(--font-size-h2);
+    margin-bottom: 1.5rem;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+/* HEADER */
+header {
+    background-color: var(--header-background);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--padding);
+    position: sticky;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    border-bottom: var(--divider-color) solid 2px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    color: var(--hover-color);
+}
+
+.section-divider {
+    width: 90%;
+    height: 1px;
+    background-color: var(--divider-color);
+    margin: 40px auto;
+    opacity: 0.5;
+}
+
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--padding);
+    gap: var(--gap);
+}
+
+.hero-image {
+    width: 40%;
+    max-width: 300px; /* Limits image width */
+}
+
+.hero-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.hero-text {
+    width: 60%;
+    text-align: center;
+}
+
+.hero-text h1 {
+    font-size: var(--font-size-h1);
+    margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+
+    .hero-image,
+    .hero-text {
+        width: 100%;
+    }
+
+    .hero-text h1 {
+        font-size: 2.5em;
+    }
+}
+
+.projects {
+    text-align: center;
+    padding: 3rem 1rem;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--gap);
+    justify-content: center;
+}
+
+.project-card {
+    background: var(--card-background);
+    color: var(--text-color);
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+.project-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.project-card h3 {
+    margin-top: 1rem;
+    font-size: 1.5em;
+}
+
+.project-card p {
+    font-size: 1em;
+    margin-top: 0.5rem;
+}
+
+.status {
+    display: inline-block;
+    padding: 5px 10px;
+    font-size: 0.9em;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.ongoing {
+    background-color: #ff9800;
+    color: white;
+}
+
+.completed {
+    background-color: #4caf50;
+    color: white;
+}
+
+.read-more {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 12px;
+    font-size: 1em;
+    color: white;
+    background-color: #1a36367d;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.read-more:hover {
+    background-color: #1A3636;
+}
