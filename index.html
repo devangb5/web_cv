@@ -3,18 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Website</title>
+    <title>Web CVs</title>
     <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
     <!------------------------------------Header--------------------->
     <header class="nav">
-    
+        <a href="#hero">
+            <img src="./assets/home_icon.png" style="width: 100%; height: 30px; filter:brightness(0) invert(1)"></a>
         <nav class="navbar">
+            
+ 
             <ul>
-                <li><a href="#hero">Home</a></li>
+                
                 <li><a href="#about">About</a></li>
                 <li><a href="#projects">Projects</a></li>
+                <li><a href="./assets/resume.pdf">Resume</a></li>
             </ul>
         </nav>
     
@@ -35,8 +39,8 @@
     <div class="intro" id="about">
         <h2 style="text-align: center;">About Me</h2>
     
-        <p style="text-align: justify; padding: 1.5rem;">I'm a Ph.D. candidate at the University of Louisville, where I explore how defects in quantum perovskites impact materials for next-gen computing. I use a mix of electronic structure calculations, machine learning, and molecular dynamics simulations to study these effects—basically, I make atoms ‘talk’ through simulations!</p>
-        <p style="text-align: justify; padding: 1.5rem;">Beyond research, I love hiking, exploring local spots, and discovering great food trucks—so much that I run a website about them! When I’m not outdoors, I enjoy reading or experimenting with new tech.</divp>
+        <p style="text-align: justify; padding: 1.5rem; font-size: 1.2rem;">I'm a Ph.D. candidate at the University of Louisville, where I explore how defects in quantum perovskites impact materials for next-gen computing. I use a mix of electronic structure calculations, machine learning, and molecular dynamics simulations to study these effects—basically, I make atoms ‘talk’ through simulations!</p>
+        <p style="text-align: justify; padding: 1.5rem; font-size: 1.2rem;">Beyond research, I love hiking, exploring local spots, and discovering great food trucks—so much that I run a <a href="https://aroundtheville.com" style="color: white;" target="_blank">website</a> about them! When I’m not outdoors, I enjoy reading or experimenting with new tech.</divp>
     </div>
 
     <!-------------------------------------------------Research-->
@@ -89,10 +93,10 @@
             </div>
         </div>
     </div>
-    <!------------------------------------------->
+    <!----------------------------Personal Interest--------------->
     <div class="section-divider"></div>
 
-    <div class="personal-interests" id="personal-interests">
+    <div class="personal-interests" id="interest">
         <h2>Beyond Research: My Interests</h2>
         <div class="interests-grid">
             <div class="interest-item">
@@ -105,7 +109,7 @@
             </div>
             <div class="interest-item">
                 <img src="./assets/photography.jpeg" alt="photography">
-                <p>Photography (Amatuer)</p>
+                <p>Photography (Amateur)</p>
             </div>
             <div class="interest-item">
                 <img src="./assets/distillery.jpeg" alt="distillery">
@@ -113,8 +117,24 @@
             </div>
         </div>
     </div>
-    
-    
+    <div class="section-divider"></div>
+    <!----------------------------------Last Book I read-->
+    <div class="last-book">
+        <h2>Last Book I Read</h2>
+        <div class="book-card">
+            <img src="./assets/book.jpeg" alt="Last Book Cover">
+            <h3>Why smart People Make Big Money Mistakes</h3>
+            <p>Author: Gary Belsky and Thomas Gilovichs</p>
+            <p>The author tries to explain the biases we as humans have and how we can use it to our advantage while investing and making money decisions.</p>
+        </div>
+    </div>
+    <!------------------------------Footer-->
+    <div class="section-divider"></div>
+    <footer class="footer">
+        
+        <p>Contact: <a href="mailto:devang.bhagat@louisville.edu" style="color: white;">Email</a>|Thank You! 😃</p>
+        
+    </footer>
     
 
     
