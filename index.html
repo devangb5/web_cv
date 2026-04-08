@@ -35,7 +35,7 @@
   <div id="root"></div>
 
   <!-- The React Application -->
-  <script type="text/babel" data-type="module">
+<script type="text/babel" data-type="module">
     import React, { useState, useEffect } from 'react';
     import { createRoot } from 'react-dom/client';
     import { 
@@ -46,6 +46,7 @@
     function App() {
       const [activeSection, setActiveSection] = useState('home');
       const [isScrolled, setIsScrolled] = useState(false);
+      const [copied, setCopied] = useState(false);
 
       useEffect(() => {
         const handleScroll = () => {
@@ -81,11 +82,31 @@
         { id: 'personal', label: 'Beyond Research' },
       ];
 
+      const handleEmailClick = (e) => {
+        // Copy to clipboard
+        const email = "devang.bhagat@louisville.edu";
+        
+        // Use modern clipboard API if available, else fallback
+        if (navigator.clipboard && window.isSecureContext) {
+            navigator.clipboard.writeText(email);
+        } else {
+            const textArea = document.createElement("textarea");
+            textArea.value = email;
+            document.body.appendChild(textArea);
+            textArea.select();
+            try { document.execCommand('copy'); } catch (err) {}
+            document.body.removeChild(textArea);
+        }
+        
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+      };
+
       return (
         <div className="min-h-screen bg-slate-50 font-sans text-slate-900 selection:bg-indigo-100 selection:text-indigo-900">
           
           {/* Navigation */}
-          <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white/80 backdrop-blur-md shadow-sm py-3' : 'bg-transparent py-5'}`}>
+             <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white/80 backdrop-blur-md shadow-sm py-3' : 'bg-transparent py-5'}`}>
             <div className="max-w-6xl mx-auto px-6 flex justify-between items-center">
               <button onClick={() => scrollTo('home')} className="text-xl font-bold tracking-tight text-slate-900 flex items-center gap-2">
                 <Atom className="w-6 h-6 text-indigo-600" />
@@ -114,7 +135,7 @@
             </div>
           </nav>
 
-          {/* Hero Section */}
+             {/* Hero Section */}
           <section id="home" className="pt-32 pb-20 md:pt-48 md:pb-32 px-6 max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
             <div className="flex-1 space-y-6">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 text-indigo-700 text-sm font-semibold mb-2">
@@ -133,10 +154,11 @@
               <div className="flex flex-wrap gap-4 pt-4">
                 <a 
                   href="mailto:devang.bhagat@louisville.edu"
-                  className="flex items-center gap-2 bg-indigo-600 text-white px-6 py-3 rounded-full font-medium hover:bg-indigo-700 transition-colors shadow-sm shadow-indigo-200"
+                  onClick={handleEmailClick}
+                  className="flex items-center gap-2 w-44 justify-center bg-indigo-600 text-white px-6 py-3 rounded-full font-medium hover:bg-indigo-700 transition-colors shadow-sm shadow-indigo-200"
                 >
                   <Mail className="w-5 h-5" />
-                  Get in touch
+                  {copied ? "Copied!" : "Get in touch"}
                 </a>
                 <button 
                   onClick={() => scrollTo('research')}
@@ -442,15 +464,17 @@
               <p className="mb-8 max-w-xl mx-auto">
                 I am currently seeking postdoctoral opportunities where I can apply my expertise in computational materials science to solve complex energy and computing challenges.
               </p>
-              <div className="flex justify-center gap-4 mb-12">
-                <a 
-                  href="mailto:devang.bhagat@louisville.edu"
-                  className="px-6 py-3 bg-white text-slate-900 rounded-full font-semibold hover:bg-slate-200 transition-colors inline-flex items-center gap-2"
-                >
-                  <Mail className="w-4 h-4" /> Email Me
-                </a>
-                <a 
-                  href="./assets/resume.pdf"
+          <div className="flex justify-center gap-4 mb-12">
+            <a 
+              href="mailto:devang.bhagat@louisville.edu"
+              onClick={handleEmailClick}
+              className="px-6 py-3 w-44 justify-center bg-white text-slate-900 rounded-full font-semibold hover:bg-slate-200 transition-colors inline-flex items-center gap-2"
+            >
+              <Mail className="w-4 h-4" /> 
+              {copied ? "Email Copied!" : "Email Me"}
+            </a>
+            <a 
+              href="./assets/resume.pdf"
                   target="_blank"
                   rel="noreferrer"
                   className="px-6 py-3 border border-slate-700 text-white rounded-full font-semibold hover:bg-slate-800 transition-colors inline-flex items-center gap-2"
